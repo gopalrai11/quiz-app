@@ -5,20 +5,46 @@ QUIZO | Contact
 {% endblock %}
 
 {% block body %}
-<div style="font-size: 30px; margin-top: 2rem;">
-   You can follow us on our social media:
-   <h1>Contact Us</h1>
-    <p>Need to get in touch with us? Fill out the form below and we'll get back to you as soon as possible.</p>
-    <form action="/contact" method="post">
-      <label for="name">Name:</label><br>
-      <input type="text" id="name" name="name"><br>
-      <label for="email">Email:</label><br>
-      <input type="email" id="email" name="email"><br>
-      <label for="message">Message:</label><br>
-      <textarea id="message" name="message" rows="5" cols="50"></textarea><br><br>
-      <input type="submit" value="Submit">
-    </form>
-</div>
+<section class="content">
+        <div class="container-fluid">
+          <div class="row">
+            <!-- left column -->
+            <div class="col-md-6" style="width: 21rem;height: 2.5rem; font-size: 1rem; position: relative; left: 300px;" >
+              <!-- jquery validation -->
+              <div class="card card-primary" >
+                <div class="card-header" style="background-color: #343a40">
+                    <strong><h1>Login</h1></strong>
+                </div>
+                <!-- /.card-header -->
+                <!-- form start -->
+                <form id="quickForm" action="/onlogin" method="POST">
+                  <div class="card-body">
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Email address</label>
+                        <input type="email" name="email" class="form-control" id="exampleInputEmail1" placeholder="Email" required>
+                      </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">Password</label>
+                        <input type="password" name="password" class="form-control" id="exampleInputPassword1" placeholder="Password" required>
+                      </div>
+                    <div class="form-group mb-0"  style="margin-top: 2.5rem;">
+                        <button type="submit" class="btn btn-outline-secondary" style=" position: relative; left: 190px">Login</button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+              <!-- /.card -->
+              </div>
+            <!--/.col (left) -->
+            <!-- right column -->
+            <div class="col-md-6">
+  
+            </div>
+            <!--/.col (right) -->
+          </div>
+          <!-- /.row -->
+        </div><!-- /.container-fluid -->
+      </section>
 <a href="https://www.facebook.com/gopalrai.gr11/"><strong>Facebook</strong></a> <br>
 <a href="https://www.instagram.com/gopal.iit/"><strong>Instagram</strong></a> <br>
 <a href="https://twitter.com/rai_gopal7"><strong>Twitter</strong></a> <br>
