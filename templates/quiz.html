@@ -13,45 +13,159 @@
 <hr>
 
     <section>
-        {% for list in array%}
+        
         <div style="font-size: 30px;">
             
-            <b>Qno.{{list.qnum}}</b>
+            <b>Qno.1</b>
             <br>
-            <b>{{list.question}}</b>
+            <b>Who is the CEO of Facebook?</b>
         </div>
 
         <form id="quickForm" action="/submit" method="POST" style="height: 2.5rem; font-size: 1rem;left: 20px;">
             <br>
             <div class="form-check">
-                <input class="form-check-input" type="radio" name="mcq{{list.qnum}}" id="option1" value='{{list.option1}}' required>
+                <input class="form-check-input" type="radio" name="mcq1" id="option1" value='Tim Cook' required>
                 <label class="form-check-label" for="flexRadioDefault1">
-                    {{list.option1}}
+                    Tim Cook
                 </label>
             </div>
         
             <div class="form-check">
-                <input class="form-check-input" type="radio" name="mcq{{list.qnum}}" id="option2"  value='{{list.option2}}'>
+                <input class="form-check-input" type="radio" name="mcq1" id="option2"  value='Bill Gates'>
                 <label class="form-check-label" for="flexRadioDefault2">
-                    {{list.option2}}
+                    Bill Gates
                 </label>
             </div>
 
             <div class="form-check">
-                <input class="form-check-input" type="radio" name="mcq{{list.qnum}}" id="option3"  value='{{list.option3}}'>
+                <input class="form-check-input" type="radio" name="mcq1" id="option3"  value='Mark Zuckerberg'>
                 <label class="form-check-label" for="flexRadioDefault2">
-                    {{list.option3}}
+                    Mark Zuckerberg
                 </label>
             </div>
 
             <div class="form-check">
-                <input class="form-check-input" type="radio" name="mcq{{list.qnum}}" id="option4"  value='{{list.option4}}'>
+                <input class="form-check-input" type="radio" name="mcq1" id="option4"  value='Pavel Durov'>
                 <label class="form-check-label" for="flexRadioDefault2">
-                    {{list.option4}}
+                    Pavel Durov
                 </label>
             </div>
             <br>
-            {% endfor %}
+            
+        <div style="font-size: 30px;">
+            
+            <b>Qno.2</b>
+            <br>
+            <b>Who is the CEO of Google?</b>
+        </div>
+
+        <form id="quickForm" action="/submit" method="POST" style="height: 2.5rem; font-size: 1rem;left: 20px;">
+            <br>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="mcq2" id="option1" value='Larry Page' required>
+                <label class="form-check-label" for="flexRadioDefault1">
+                    Larry Page
+                </label>
+            </div>
+        
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="mcq2" id="option2"  value='Sundar Pichai'>
+                <label class="form-check-label" for="flexRadioDefault2">
+                    Sundar Pichai
+                </label>
+            </div>
+
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="mcq2" id="option3"  value='Shantanu Narayen'>
+                <label class="form-check-label" for="flexRadioDefault2">
+                    Shantanu Narayen
+                </label>
+            </div>
+
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="mcq2" id="option4"  value='Mark Zuckerberg'>
+                <label class="form-check-label" for="flexRadioDefault2">
+                    Mark Zuckerberg
+                </label>
+            </div>
+            <br>
+            
+        <div style="font-size: 30px;">
+            
+            <b>Qno.3</b>
+            <br>
+            <b>Who is the CEO of Whatsapp?</b>
+        </div>
+
+        <form id="quickForm" action="/submit" method="POST" style="height: 2.5rem; font-size: 1rem;left: 20px;">
+            <br>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="mcq3" id="option1" value='Jan Koum' required>
+                <label class="form-check-label" for="flexRadioDefault1">
+                    Jan Koum
+                </label>
+            </div>
+        
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="mcq3" id="option2"  value='Chris Daniels'>
+                <label class="form-check-label" for="flexRadioDefault2">
+                    Chris Daniels
+                </label>
+            </div>
+
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="mcq3" id="option3"  value='Mark Zuckerberg'>
+                <label class="form-check-label" for="flexRadioDefault2">
+                    Mark Zuckerberg
+                </label>
+            </div>
+
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="mcq3" id="option4"  value='Warren Buffet'>
+                <label class="form-check-label" for="flexRadioDefault2">
+                    Warren Buffet
+                </label>
+            </div>
+            <br>
+            
+        <div style="font-size: 30px;">
+            
+            <b>Qno.4</b>
+            <br>
+            <b>Who is the CEO of Youtube?</b>
+        </div>
+
+        <form id="quickForm" action="/submit" method="POST" style="height: 2.5rem; font-size: 1rem;left: 20px;">
+            <br>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="mcq4" id="option1" value='Susan Wojcicky' required>
+                <label class="form-check-label" for="flexRadioDefault1">
+                    Susan Wojcicky
+                </label>
+            </div>
+        
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="mcq4" id="option2"  value='Bill Gates'>
+                <label class="form-check-label" for="flexRadioDefault2">
+                    Bill Gates
+                </label>
+            </div>
+
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="mcq4" id="option3"  value='Mark Zuck'>
+                <label class="form-check-label" for="flexRadioDefault2">
+                    Mark Zuck
+                </label>
+            </div>
+
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="mcq4" id="option4"  value='Tim Cook'>
+                <label class="form-check-label" for="flexRadioDefault2">
+                    Tim Cook
+                </label>
+            </div>
+            <br>
+            
             <div style="font-size: 30px; margin-top: 2rem;">
                 <button type="submit" class="btn btn-outline-secondary" style="width: 66rem; height: 2.5rem; font-size: 1rem; left: 28px;">Submit</button>
             </div>
