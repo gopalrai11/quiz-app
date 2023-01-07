@@ -250,6 +250,10 @@ def validation():
     return render_template("login.html")
 
 
+@app.route("/login", methods=["POST", "GET"])
+def login():
+    return render_template("login.html")
+
 @app.route("/show", methods=["POST", "GET"])
 def results():
     global email
