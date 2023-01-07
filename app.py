@@ -245,7 +245,7 @@ def submit_quiz():
     return render_template("user.html")
 
 
-@app.route("/login", methods=["POST", "GET"])
+@app.route("/", methods=["POST", "GET"])
 def validation():
     return render_template("login.html")
 
@@ -300,4 +300,4 @@ def logout():
 
 
 if __name__ == "__main__":
-    app.run(debug=True, host="0.0.0.0")
+    app.run(debug=False, host="0.0.0.0")
