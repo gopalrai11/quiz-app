@@ -1,204 +1,62 @@
 {% extends "base.html" %}
 
 {% block title %}
- QUIZO | Take Quiz
+ QUIZO | Take the Quiz
 {% endblock %}
 
 {% block body %}
 <!-- Main content -->
-<div
-    style="font-size: 50px; font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif">
-    QUIZO
+<div style="font-size: 50px; font-family:'Trebuchet MS', Arial, sans-serif">
+    QUIZO Quiz
 </div>
 <hr>
 
-    <section>
+<section>
+    <form id="quickForm" action="/submit" method="POST" style="height: 2.5rem; font-size: 1rem;left: 20px;">
         
+        {% for question in array %}
         <div style="font-size: 30px;">
-            
-            <b>Qno.1</b>
+            <b>Qno.{{ question.qno }}</b>
             <br>
-            <b>Who is the CEO of Facebook?</b>
+            <b>{{ question.text }}</b>
         </div>
 
-        <form id="quickForm" action="/submit" method="POST" style="height: 2.5rem; font-size: 1rem;left: 20px;">
-            <br>
-            <div class="form-check">
-                <input class="form-check-input" type="radio" name="mcq1" id="option1" value='Tim Cook' required>
-                <label class="form-check-label" for="flexRadioDefault1">
-                    Tim Cook
-                </label>
-            </div>
-        
-            <div class="form-check">
-                <input class="form-check-input" type="radio" name="mcq1" id="option2"  value='Bill Gates'>
-                <label class="form-check-label" for="flexRadioDefault2">
-                    Bill Gates
-                </label>
-            </div>
-
-            <div class="form-check">
-                <input class="form-check-input" type="radio" name="mcq1" id="option3"  value='Mark Zuckerberg'>
-                <label class="form-check-label" for="flexRadioDefault2">
-                    Mark Zuckerberg
-                </label>
-            </div>
-
-            <div class="form-check">
-                <input class="form-check-input" type="radio" name="mcq1" id="option4"  value='Pavel Durov'>
-                <label class="form-check-label" for="flexRadioDefault2">
-                    Pavel Durov
-                </label>
-            </div>
-            <br>
-            
-        <div style="font-size: 30px;">
-            
-            <b>Qno.2</b>
-            <br>
-            <b>Who is the CEO of Google?</b>
+        {% for option in question.options %}
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="mcq{{ question.qno }}" id="option{{ loop.index }}" value="{{ option }}" required>
+            <label class="form-check-label" for="option{{ loop.index }}">
+                {{ option }}
+            </label>
         </div>
+        {% endfor %}
+        <br>
+        {% endfor %}
 
-        <form id="quickForm" action="/submit" method="POST" style="height: 2.5rem; font-size: 1rem;left: 20px;">
-            <br>
-            <div class="form-check">
-                <input class="form-check-input" type="radio" name="mcq2" id="option1" value='Larry Page' required>
-                <label class="form-check-label" for="flexRadioDefault1">
-                    Larry Page
-                </label>
-            </div>
-        
-            <div class="form-check">
-                <input class="form-check-input" type="radio" name="mcq2" id="option2"  value='Sundar Pichai'>
-                <label class="form-check-label" for="flexRadioDefault2">
-                    Sundar Pichai
-                </label>
-            </div>
-
-            <div class="form-check">
-                <input class="form-check-input" type="radio" name="mcq2" id="option3"  value='Shantanu Narayen'>
-                <label class="form-check-label" for="flexRadioDefault2">
-                    Shantanu Narayen
-                </label>
-            </div>
-
-            <div class="form-check">
-                <input class="form-check-input" type="radio" name="mcq2" id="option4"  value='Mark Zuckerberg'>
-                <label class="form-check-label" for="flexRadioDefault2">
-                    Mark Zuckerberg
-                </label>
-            </div>
-            <br>
-            
-        <div style="font-size: 30px;">
-            
-            <b>Qno.3</b>
-            <br>
-            <b>Who is the CEO of Whatsapp?</b>
+        <div style="font-size: 30px; margin-top: 2rem;">
+            <button type="submit" class="btn btn-outline-secondary" style="width: 66rem; height: 2.5rem; font-size: 1rem; left: 28px;">
+                Submit
+            </button>
         </div>
-
-        <form id="quickForm" action="/submit" method="POST" style="height: 2.5rem; font-size: 1rem;left: 20px;">
-            <br>
-            <div class="form-check">
-                <input class="form-check-input" type="radio" name="mcq3" id="option1" value='Jan Koum' required>
-                <label class="form-check-label" for="flexRadioDefault1">
-                    Jan Koum
-                </label>
-            </div>
-        
-            <div class="form-check">
-                <input class="form-check-input" type="radio" name="mcq3" id="option2"  value='Chris Daniels'>
-                <label class="form-check-label" for="flexRadioDefault2">
-                    Chris Daniels
-                </label>
-            </div>
-
-            <div class="form-check">
-                <input class="form-check-input" type="radio" name="mcq3" id="option3"  value='Mark Zuckerberg'>
-                <label class="form-check-label" for="flexRadioDefault2">
-                    Mark Zuckerberg
-                </label>
-            </div>
-
-            <div class="form-check">
-                <input class="form-check-input" type="radio" name="mcq3" id="option4"  value='Warren Buffet'>
-                <label class="form-check-label" for="flexRadioDefault2">
-                    Warren Buffet
-                </label>
-            </div>
-            <br>
-            
-        <div style="font-size: 30px;">
-            
-            <b>Qno.4</b>
-            <br>
-            <b>Who is the CEO of Youtube?</b>
-        </div>
-
-        <form id="quickForm" action="/submit" method="POST" style="height: 2.5rem; font-size: 1rem;left: 20px;">
-            <br>
-            <div class="form-check">
-                <input class="form-check-input" type="radio" name="mcq4" id="option1" value='Susan Wojcicky' required>
-                <label class="form-check-label" for="flexRadioDefault1">
-                    Susan Wojcicky
-                </label>
-            </div>
-        
-            <div class="form-check">
-                <input class="form-check-input" type="radio" name="mcq4" id="option2"  value='Bill Gates'>
-                <label class="form-check-label" for="flexRadioDefault2">
-                    Bill Gates
-                </label>
-            </div>
-
-            <div class="form-check">
-                <input class="form-check-input" type="radio" name="mcq4" id="option3"  value='Mark Zuck'>
-                <label class="form-check-label" for="flexRadioDefault2">
-                    Mark Zuck
-                </label>
-            </div>
-
-            <div class="form-check">
-                <input class="form-check-input" type="radio" name="mcq4" id="option4"  value='Tim Cook'>
-                <label class="form-check-label" for="flexRadioDefault2">
-                    Tim Cook
-                </label>
-            </div>
-            <br>
-            
-            <div style="font-size: 30px; margin-top: 2rem;">
-                <button type="submit" class="btn btn-outline-secondary" style="width: 66rem; height: 2.5rem; font-size: 1rem; left: 28px;">Submit</button>
-            </div>
-            <br>
-        </form>
-    </section>
+        <br>
+    </form>
+</section>
 </div>
-
-
 {% endblock %}
 
-
-{% block navbar%}
+{% block navbar %}
 <li class="nav-item">
     <a href="/quiz" class="nav-link">
-<!--<i class="nav-icon fas fa-tachometer-alt"></i> -->
-      <p>
-        Take Quiz
-      </p>
+      <p>Take Quiz</p>
     </a>
-  </li>
-  <li class="nav-item">
+</li>
+<li class="nav-item">
     <a href="/show" class="nav-link">
-      <p>
-        Check Results
-      </p>
+      <p>Check Results</p>
     </a>
-  </li>
+</li>
 <li class="nav-item">
     <a href="/logout" class="nav-link">
-      <p>
-        Logout
-      </p>
+      <p>Logout</p>
     </a>
-  </li>
+</li>
 {% endblock %}
