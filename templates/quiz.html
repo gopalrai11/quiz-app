@@ -1,62 +1,83 @@
 {% extends "base.html" %}
 
 {% block title %}
- QUIZO | Take the Quiz
+ trade.ai | Start Investing
 {% endblock %}
 
 {% block body %}
 <!-- Main content -->
-<div style="font-size: 50px; font-family:'Trebuchet MS', Arial, sans-serif">
-    QUIZO Quiz
+<div
+    style="font-size: 50px; font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif">
+    trade.ai
 </div>
 <hr>
 
-<section>
-    <form id="quickForm" action="/submit" method="POST" style="height: 2.5rem; font-size: 1rem;left: 20px;">
-        
-        {% for question in array %}
+<form id="quickForm" action="/submit" method="POST" style="font-size: 1rem; left: 20px;">
+    {% for question in quiz %}
+    <section>
         <div style="font-size: 30px;">
-            <b>Qno.{{ question.qno }}</b>
+            <b>Qno.{{ question.qnum }}</b>
             <br>
-            <b>{{ question.text }}</b>
+            <b>{{ question.question }}</b>
         </div>
-
-        {% for option in question.options %}
+        <br>
         <div class="form-check">
-            <input class="form-check-input" type="radio" name="mcq{{ question.qno }}" id="option{{ loop.index }}" value="{{ option }}" required>
-            <label class="form-check-label" for="option{{ loop.index }}">
-                {{ option }}
+            <input class="form-check-input" type="radio" name="mcq{{ question.qnum }}" id="option1_{{ question.qnum }}" value="{{ question.option1 }}" required>
+            <label class="form-check-label" for="option1_{{ question.qnum }}">
+                {{ question.option1 }}
             </label>
         </div>
-        {% endfor %}
-        <br>
-        {% endfor %}
-
-        <div style="font-size: 30px; margin-top: 2rem;">
-            <button type="submit" class="btn btn-outline-secondary" style="width: 66rem; height: 2.5rem; font-size: 1rem; left: 28px;">
-                Submit
-            </button>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="mcq{{ question.qnum }}" id="option2_{{ question.qnum }}" value="{{ question.option2 }}">
+            <label class="form-check-label" for="option2_{{ question.qnum }}">
+                {{ question.option2 }}
+            </label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="mcq{{ question.qnum }}" id="option3_{{ question.qnum }}" value="{{ question.option3 }}">
+            <label class="form-check-label" for="option3_{{ question.qnum }}">
+                {{ question.option3 }}
+            </label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="mcq{{ question.qnum }}" id="option4_{{ question.qnum }}" value="{{ question.option4 }}">
+            <label class="form-check-label" for="option4_{{ question.qnum }}">
+                {{ question.option4 }}
+            </label>
         </div>
         <br>
-    </form>
-</section>
-</div>
+    </section>
+    {% endfor %}
+    
+    <div style="font-size: 30px; margin-top: 2rem;">
+        <button type="submit" class="btn btn-outline-secondary" style="width: 20rem; height: 2rem; font-size: 0.9rem;">Submit</button>
+    </div>
+    
+    <br>
+</form>
+
 {% endblock %}
 
 {% block navbar %}
 <li class="nav-item">
     <a href="/quiz" class="nav-link">
-      <p>Take Quiz</p>
+      <p>
+        Take Quiz
+      </p>
     </a>
 </li>
 <li class="nav-item">
     <a href="/show" class="nav-link">
-      <p>Check Results</p>
+      <p>
+        Check Results
+      </p>
     </a>
 </li>
 <li class="nav-item">
     <a href="/logout" class="nav-link">
-      <p>Logout</p>
+      <p>
+        Logout
+      </p>
     </a>
 </li>
 {% endblock %}
