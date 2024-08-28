@@ -69,41 +69,24 @@ def making_marks(listElement):
     return s
 
 
-def making_objects(line, qno):
-    # Splitting each line by commas
-    parts = line.split(",")
-    
-    # Extracting question, options, and the correct answer
-    question_text = parts[0]
-    options = parts[1:5]  # The 4 options
-    correct_answer = parts[5]  # The correct answer
-
-    # Creating a dictionary for the question
-    question_obj = {
-        "qno": qno,
-        "text": question_text,
-        "options": options,
-        "answer": correct_answer
-    }
-    
-    return question_obj
-
 @app.route("/quiz", methods=["POST", "GET"])
 def quiz():
     qno = 0
     whole_quiz = []
-    
-    # Reading the questions.txt file
-    with open("questions.txt", "r") as myFile:
-        questions = myFile.read().splitlines()
+    questions = []
+    try:
+        with open("questions.txt", "r") as myFile:
+            questions = myFile.read().splitlines()
+    except Exception as e:
+        return f"Error reading questions file: {e}", 500
 
-    # Generating objects for each question
     for element in questions:
         qno += 1
         obj = making_objects(element, qno)
         whole_quiz.append(obj)
 
-    return render_template("quiz.html", array=whole_quiz)
+    return render_template("quiz.html", quiz=whole_quiz)
+
 
 
 @app.route("/index")
@@ -202,24 +185,17 @@ def showll():
 
 @app.route("/addquestion", methods=["POST", "GET"])
 def add_question():
-    if request.method == "POST":
-        ques = request.form.get('question')
-        op1 = request.form.get('op1')
-        op2 = request.form.get('op2')
-        op3 = request.form.get('op3')
-        op4 = request.form.get('op4')
-        cor = request.form.get('corop')
+    ques = request.form.get('question')
+    op1 = request.form.get('op1')
+    op2 = request.form.get('op2')
+    op3 = request.form.get('op3')
+    op4 = request.form.get('op4')
+    cor = request.form.get('corop')
 
-        # Combine the question and options into one string
-        complete = f"{ques},{op1},{op2},{op3},{op4},{cor}"
-
-        # Append the new question to questions.txt
-        with open("questions.txt", "a") as myFile:
-            myFile.write(complete + "\n")
-
-        # Redirect or display success message
-        
-    
+    complete = ques + "," + op1 + "," + op2 + "," + op3 + "," + op4 + "," + cor
+    myFile = open("questions.txt", "a")
+    print(complete, file=myFile, sep="\n")
+    myFile.close()
     return render_template("admin.html")
 
 
